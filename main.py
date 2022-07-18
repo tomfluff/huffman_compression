@@ -22,10 +22,10 @@ def compression_ratio(text:str, codes:dict):
 
 if __name__ == "__main__":
     # generate text A
-    G_a = text_gen.TextGen({'A':0.3,'B':0.2,'C':0.15,'D':0.25,'E':0.1})
+    G_a = text_gen.TextGen({'A':0.8,'B':0.03,'C':0.1,'D':0.05,'E':0.02})
     T_a = G_a.generate(N)
     # generate text B
-    G_b = text_gen.TextGen({'A':0.02,'B':0.25,'C':0.1,'D':0.05,'E':0.58})
+    G_b = text_gen.TextGen({'A':0.08,'B':0.1,'C':0.01,'D':0.01,'E':0.8})
     T_b = G_b.generate(N)
 
     C_a = dict(huffman.calculate_huffman_codes(huffman.build_huffman_tree(T_a)))
@@ -52,5 +52,5 @@ if __name__ == "__main__":
     print(f"Text B (Compressor A) : ratio={_comp_bit/_notm_bit} ({_comp_bit} / {_notm_bit})")
     # Compress text_b with compressor_b
     _notm_bit,_comp_bit = compression_ratio(T_b,C_b)
-    print(f"Text B  (Compressor B) : ratio={_comp_bit/_notm_bit} ({_comp_bit} / {_notm_bit})")
+    print(f"Text B (Compressor B) : ratio={_comp_bit/_notm_bit} ({_comp_bit} / {_notm_bit})")
     
